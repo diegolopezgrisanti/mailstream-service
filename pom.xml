@@ -21,5 +21,13 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>3.3.5</version>
         </dependency>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.36</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>
