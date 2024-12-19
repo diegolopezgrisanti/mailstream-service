@@ -1,6 +1,8 @@
 package com.mailstream.domain.subscriber;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +22,8 @@ public class Subscriber {
     @GeneratedValue
     private UUID id;
 
+    @Email
+    @NotBlank
     @Column(nullable = false, unique = true)
     private String email;
 
