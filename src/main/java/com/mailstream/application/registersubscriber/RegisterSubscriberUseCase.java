@@ -2,11 +2,11 @@ package com.mailstream.application.registersubscriber;
 
 import com.mailstream.domain.subscriber.Subscriber;
 import com.mailstream.domain.subscriber.SubscriberRepository;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-@Service
+@Component
 public class RegisterSubscriberUseCase {
 
     private final SubscriberRepository subscriberRepository;
