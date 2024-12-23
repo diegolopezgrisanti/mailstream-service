@@ -3,8 +3,11 @@ package com.mailstream.application.registersubscriber;
 import com.mailstream.domain.subscriber.Subscriber;
 import com.mailstream.domain.subscriber.SubscriberRepository;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.UUID;
 
 @Component
 public class RegisterSubscriberUseCase {
@@ -15,14 +18,17 @@ public class RegisterSubscriberUseCase {
         this.subscriberRepository = subscriberRepository;
     }
 
+    @Transactional
     public Subscriber registerSubscriber(String email) {
         Optional<Subscriber> existingSubscriber = subscriberRepository.findByEmail(email);
         if (existingSubscriber.isPresent()) {
-            throw new IllegalArgumentException("Subscriber with this email already exists");
+            throw new IllegalArgumentException("The email is already registered.");
         }
 
-        Subscriber newSubscriber = new Subscriber();
-        newSubscriber.setEmail(email);
+        UUID id = UUID.randomUUID();
+        LocalDateTime subscriptionDate = LocalDateTime.now();
+
+        Subscriber newSubscriber = new Subscriber(id, email, subscriptionDate);
         return subscriberRepository.save(newSubscriber);
     }
 }
