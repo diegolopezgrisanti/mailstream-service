@@ -57,7 +57,7 @@ class RegisterSubscriberUseCaseTest {
         );
 
         // THEN
-        assertEquals("Subscriber with this email already exists", exception.getMessage());
+        assertEquals("The email is already registered.", exception.getMessage());
 
         verify(subscriberRepository).findByEmail(email);
         verify(subscriberRepository, never()).save(Mockito.any(Subscriber.class));

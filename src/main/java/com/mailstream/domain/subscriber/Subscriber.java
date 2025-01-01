@@ -19,7 +19,6 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Subscriber {
     @Id
-    @GeneratedValue
     private UUID id;
 
     @Email
