@@ -44,6 +44,7 @@ class SubscriberControllerContractTest {
     void setUp() {
         RestAssuredMockMvc.webAppContextSetup(context);
     }
+
     private final String email = "example@mail.com";
 
     @Test
